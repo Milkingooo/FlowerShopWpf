@@ -12,29 +12,35 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <TextBox
-            Text="{Binding NewCustomer.Name}"
+            Text="{Binding NewGood.Name}"
             Grid.Row="0"
             >
 
         </TextBox>
         <TextBox
-            Text="{Binding NewCustomer.Phone}"
+            Text="{Binding NewGood.Price}"
             Grid.Row="1">
 
         </TextBox>
         <TextBox
-            Text="{Binding NewCustomer.Email}"
+            Text="{Binding NewGood.Quantity}"
             Grid.Row="2">
+
+        </TextBox>
+        <TextBox
+        Text="{Binding NewGood.IdCategory}"
+        Grid.Row="3">
 
         </TextBox>
 
         <Button
             Name="saveButton"
             Content="Сохранить"
-            Grid.Row="3"
+            Grid.Row="4"
             Click="saveButton_Click"></Button>
 
     </Grid>

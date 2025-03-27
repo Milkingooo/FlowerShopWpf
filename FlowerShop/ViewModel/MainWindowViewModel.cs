@@ -12,11 +12,12 @@ namespace FlowerShop.ViewModel
     public class MainWindowViewModel : BVM
     {
         private string _name;
-        private string _phone;
-        private string _email;
-        private ObservableCollection<Customer> _customers;
-        private Customer _selectedCustomer;
-        private Customer _newCustomer;
+        private string _price;
+        private string _quantity;
+        private string _idCategory;
+        private ObservableCollection<Good> _goods;
+        private Good _selectedGood;
+        private Good _newGood;
 
         public string Name
         {
@@ -24,52 +25,57 @@ namespace FlowerShop.ViewModel
             set => SetPropertyChanged(ref _name, value, nameof(Name));
         }
 
-        public string Phone
+        public string Price
         {
-            get => _phone;
-            set => SetPropertyChanged(ref _phone, value, nameof(Phone));
+            get => _price;
+            set => SetPropertyChanged(ref _price, value, nameof(Price));
         }
 
-        public string Email
+        public string Quantity
         {
-            get => _email;
-            set => SetPropertyChanged(ref _email, value, nameof(Email));
+            get => _quantity;
+            set => SetPropertyChanged(ref _quantity, value, nameof(Quantity));
         }
 
-        public ObservableCollection<Customer> Customers
+        public string Idcategory
         {
-            get => _customers;
-            set => SetPropertyChanged(ref _customers, value, nameof(Customers));
+            get => _idCategory;
+            set => SetPropertyChanged(ref _idCategory, value, nameof(Idcategory));
+        }
+        public ObservableCollection<Good> Goods
+        {
+            get => _goods;
+            set => SetPropertyChanged(ref _goods, value, nameof(Goods));
         }
 
-        public Customer SelectedCustomer
+        public Good SelectedGood
         {
-            get => _selectedCustomer;
-            set => SetPropertyChanged(ref _selectedCustomer, value, nameof(SelectedCustomer));
+            get => _selectedGood;
+            set => SetPropertyChanged(ref _selectedGood, value, nameof(SelectedGood));
         }
 
-        public Customer NewCustomer
+        public Good NewGood
         {
-            get => _newCustomer;
-            set => SetPropertyChanged(ref _newCustomer, value, nameof(NewCustomer));
+            get => _newGood;
+            set => SetPropertyChanged(ref _newGood, value, nameof(NewGood));
         }
 
         public MainWindowViewModel()
         {
-            Customers = new ObservableCollection<Customer>();
-            NewCustomer = new Customer();
+            Goods = new ObservableCollection<Good>();
+            NewGood = new Good();
         }
 
         public void LoadCustomers()
         {
-            Customers.Clear();
+            Goods.Clear();
             using(var context = new FlowerShopEntities())
             {
-                var temp = context.Customer.ToList();
+                var temp = context.Good.ToList();
 
-                foreach (var customer in temp)
+                foreach (var good in temp)
                 {
-                    Customers.Add(customer);
+                    Goods.Add(good);
                 }
             }
         }
@@ -80,9 +86,9 @@ namespace FlowerShop.ViewModel
             {
                 using(var context = new FlowerShopEntities())
                 {
-                    var findEntity = context.Customer.FirstOrDefault(s => s.Id == SelectedCustomer.Id);
+                    var findEntity = context.Good.FirstOrDefault(s => s.Id == SelectedGood.Id);
                     if (findEntity == null) return;
-                    var result = context.Customer.Remove(findEntity);
+                    var result = context.Good.Remove(findEntity);
                     context.SaveChanges();
 
                     LoadCustomers();
@@ -99,7 +105,7 @@ namespace FlowerShop.ViewModel
         {
             using (var context = new FlowerShopEntities())
             {
-                var newStudent = context.Customer.Add(NewCustomer);
+                var newGood = context.Good.Add(NewGood);
                 context.SaveChanges();
                 return true;
             }

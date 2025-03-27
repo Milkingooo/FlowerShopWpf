@@ -5,65 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlowerShop.View.window"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
-        <DataGrid
-            IsReadOnly="True"
-            SelectedItem="{Binding SelectedCustomer}"
-            Grid.Row="0"
-            AutoGenerateColumns="False"
-            ItemsSource="{Binding Customers}">
+        <StackPanel>
+            <ToolBar Height="30" VerticalAlignment="Top">
+                <Button>
+                    <Image Source="/Assets/Images/save.png" />
+                </Button>
+                <Separator />
+                <Button
+                      Name="addButton"
+                      Click="addButton_Click">
+                    <Image Source="/Assets/Images/add.png" />
+                </Button>
+                <Separator />
+                <Button
+                     Name="deleteButton"
+                     Click="deleteButton_Click">
+                    <Image Source="/Assets/Images/delete.png" />
+                </Button>
+                <Separator />
+                <Button>
+                    <Image Source="/Assets/Images/edit.png" />
+                </Button>
+                <Separator />
+                <Button
+                    Name="getButton"
+                    Click="getButton_Click">
+                    <Image Source="/Assets/Images/reload.png" />
+                </Button>
+                <Separator />
+                <TextBox Foreground="LightGray" Width="100">Поиск...</TextBox>
+                <Separator />
+                <TabControl>
+                    <TabItem Header="Товар">Первая вкладка</TabItem>
+                    <TabItem Header="Поставка">Вторая вкладка</TabItem>
+                </TabControl>
+            </ToolBar>
 
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Имя"
-                    Binding="{Binding Path=Name}">
+            <DataGrid
+                IsReadOnly="True"
+                SelectedItem="{Binding SelectedGood}"
+                Grid.Row="0"
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Goods}">  
 
-                </DataGridTextColumn>
-                <DataGridTextColumn
-                    Header="Телефон"
-                    Binding="{Binding Path=Phone}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+            Header="Название"
+            Binding="{Binding Path=Name}">
 
-                </DataGridTextColumn>
-                <DataGridTextColumn
-                    Header="Почта"
-                    Binding="{Binding Path=Email}">
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Grid
-            Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Button
-                Grid.Row="1"
-                Grid.Column="0"
-                Content="Получить данные"
-                Name="getButton"
-                Click="getButton_Click">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn
+            Header="Цена"
+            Binding="{Binding Path=Price}">
 
-            </Button>
-            <Button
-                Grid.Row="1"
-                Grid.Column="1"
-                Content="Удалить данные"
-                Name="deleteButton"
-                Click="deleteButton_Click">
-            </Button>
-            <Button
-                Grid.Row="1"
-                Grid.Column="2"
-                Content="Добавить"
-                Name="addButton"
-                Click="addButton_Click">
-            </Button>
-        </Grid>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn
+            Header="Количество"
+            Binding="{Binding Path=Quantity}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn
+            Header="ID категории"
+            Binding="{Binding Path=IdCategory}">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Window>

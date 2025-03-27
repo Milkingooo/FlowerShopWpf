@@ -162,6 +162,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Images\delete.png" />
+    <Resource Include="Assets\Images\edit.png" />
+    <Resource Include="Assets\Images\reload.png" />
+    <Resource Include="Assets\Images\save.png" />
+    <Resource Include="Assets\Images\add.png" />
     <Content Include="Model\FlowerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FlowerModel.Context.cs</LastGenOutput>

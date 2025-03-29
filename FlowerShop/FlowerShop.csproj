@@ -107,6 +107,9 @@
     <Compile Include="Model\Supply.cs">
       <DependentUpon>FlowerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\SupplyLog.cs">
+      <DependentUpon>FlowerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BVM.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\window\AddCustomerWindow.xaml.cs">

@@ -33,5 +33,6 @@ namespace FlowerShop.Model
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<Supply> Supply { get; set; }
+        public virtual DbSet<SupplyLog> SupplyLog { get; set; }
     }
 }

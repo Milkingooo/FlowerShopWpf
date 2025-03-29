@@ -41,9 +41,16 @@ namespace FlowerShop.View.window
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            AddCustomerWindow addCustomerWindow = new AddCustomerWindow();
-            addCustomerWindow.Owner = this;
-            addCustomerWindow.ShowDialog();
+                AddCustomerWindow addCustomerWindow = new AddCustomerWindow(null);
+                addCustomerWindow.Owner = this;
+                addCustomerWindow.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+                AddCustomerWindow addCustomerWindow = new AddCustomerWindow((DataContext as MainWindowViewModel).SelectedGood);
+                addCustomerWindow.Owner = this;
+                addCustomerWindow.ShowDialog();
         }
     }
 }

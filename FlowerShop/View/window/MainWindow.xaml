@@ -25,7 +25,7 @@
                     <Image Source="/Assets/Images/delete.png" />
                 </Button>
                 <Separator />
-                <Button>
+                <Button Click="Button_Click">
                     <Image Source="/Assets/Images/edit.png" />
                 </Button>
                 <Separator />
@@ -37,40 +37,44 @@
                 <Separator />
                 <TextBox Foreground="LightGray" Width="100">Поиск...</TextBox>
                 <Separator />
-                <TabControl>
-                    <TabItem Header="Товар">Первая вкладка</TabItem>
-                    <TabItem Header="Поставка">Вторая вкладка</TabItem>
-                </TabControl>
+                
             </ToolBar>
+            <TabControl>
+                <TabItem Header="Товар">
+                    <TabItem.Content>
+                        <DataGrid
+                         IsReadOnly="True"
+                         SelectedItem="{Binding SelectedGood}"
+                         Grid.Row="0"
+                         AutoGenerateColumns="False"
+                         ItemsSource="{Binding Goods}">
 
-            <DataGrid
-                IsReadOnly="True"
-                SelectedItem="{Binding SelectedGood}"
-                Grid.Row="0"
-                AutoGenerateColumns="False"
-                ItemsSource="{Binding Goods}">  
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                         Header="Название"
+                         Binding="{Binding Path=Name}">
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-            Header="Название"
-            Binding="{Binding Path=Name}">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn
+                         Header="Цена"
+                         Binding="{Binding Path=Price}">
 
-                    </DataGridTextColumn>
-                    <DataGridTextColumn
-            Header="Цена"
-            Binding="{Binding Path=Price}">
-
-                    </DataGridTextColumn>
-                    <DataGridTextColumn
-            Header="Количество"
-            Binding="{Binding Path=Quantity}">
-                    </DataGridTextColumn>
-                    <DataGridTextColumn
-            Header="ID категории"
-            Binding="{Binding Path=IdCategory}">
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn
+                     Header="Количество"
+                     Binding="{Binding Path=Quantity}">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn
+                         Header="ID категории"
+                         Binding="{Binding Path=IdCategory}">
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="Поставка">Вторая вкладка</TabItem>
+            </TabControl>
+           
         </StackPanel>
     </Grid>
 </Window>

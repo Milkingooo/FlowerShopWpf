@@ -1,4 +1,5 @@
-﻿using FlowerShop.ViewModel;
+﻿using FlowerShop.Model;
+using FlowerShop.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,22 @@ namespace FlowerShop.View.window
     /// </summary>
     public partial class AddCustomerWindow : Window
     {
-        public AddCustomerWindow()
+        public AddCustomerWindow(Good editGood)
         {
             InitializeComponent();
 
             DataContext = new MainWindowViewModel();
+            
+            (DataContext as MainWindowViewModel).NewGood = editGood;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = (DataContext as MainWindowViewModel).AddCustomer();
+           var result = (DataContext as MainWindowViewModel).EditGood();
 
             if (result)
             {
-                MessageBox.Show("Объект записан");
+                MessageBox.Show("Запись сохранена!", "Управление товарами", MessageBoxButton.OK);
                 ((this.Owner as MainWindow).DataContext as MainWindowViewModel).LoadCustomers();
                 this.Close();
             }

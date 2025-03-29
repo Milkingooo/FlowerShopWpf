@@ -5,43 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlowerShop.View.window"
         mc:Ignorable="d"
-        Title="AddCustomerWindow" Height="450" Width="800">
+        Title="Управление товарами" MinHeight="400" MinWidth="350" Height="400" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+        <GroupBox Header="Добавление/изменение товара" Padding="5" Width="210" Height="300" HorizontalAlignment="Center" Margin="10">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="Введите название товара" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewGood.Name}" Height="20" Width="150" Margin="5"/>
 
-        <TextBox
-            Text="{Binding NewGood.Name}"
-            Grid.Row="0"
-            >
+                <Label Content="Введите цену товара" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewGood.Price}" Height="20" Width="150" Margin="5"/>
 
-        </TextBox>
-        <TextBox
-            Text="{Binding NewGood.Price}"
-            Grid.Row="1">
+                <Label Content="Введите количество товара" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewGood.Quantity}" Height="20" Width="150" Margin="5"/>
 
-        </TextBox>
-        <TextBox
-            Text="{Binding NewGood.Quantity}"
-            Grid.Row="2">
-
-        </TextBox>
-        <TextBox
-        Text="{Binding NewGood.IdCategory}"
-        Grid.Row="3">
-
-        </TextBox>
+                <Label Content="Введите ID категории товара" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewGood.IdCategory}" Height="20" Width="150" Margin="5"></TextBox>
 
         <Button
             Name="saveButton"
             Content="Сохранить"
             Grid.Row="4"
-            Click="saveButton_Click"></Button>
-
+            Click="saveButton_Click"
+            Margin="5" Height="20" Width="150"></Button>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,14 +85,19 @@ namespace FlowerShop.ViewModel
         {
             try
             {
-                using(var context = new FlowerShopEntities())
-                {
-                    var findEntity = context.Good.FirstOrDefault(s => s.Id == SelectedGood.Id);
-                    if (findEntity == null) return;
-                    var result = context.Good.Remove(findEntity);
-                    context.SaveChanges();
+                MessageBoxResult result1;
+                result1 = MessageBox.Show("Вы действительно хотите удалить объект?", "Удаление объекта", MessageBoxButton.OKCancel);
 
-                    LoadCustomers();
+                if (result1 == MessageBoxResult.OK)
+                {
+                    using (var context = new FlowerShopEntities())
+                    {
+                        var findEntity = context.Good.FirstOrDefault(s => s.Id == SelectedGood.Id);
+                        if (findEntity == null) return;
+                        var result = context.Good.Remove(findEntity);
+                        context.SaveChanges();
+                        LoadCustomers();
+                    }
                 }
             }
             catch
@@ -101,12 +107,27 @@ namespace FlowerShop.ViewModel
             }
         }
 
-        public bool AddCustomer()
+        public bool AddGood()
         {
             using (var context = new FlowerShopEntities())
             {
                 var newGood = context.Good.Add(NewGood);
                 context.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool EditGood()
+        {
+            using(var context = new FlowerShopEntities())
+            {
+                var findEntity = context.Good.FirstOrDefault(s => s.Id == NewGood.Id);
+                if (findEntity != null)
+                {
+                    context.Good.AddOrUpdate(NewGood);
+                    context.SaveChanges();
+                }
+                else { return false; }
                 return true;
             }
         }

@@ -78,6 +78,15 @@
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="DateSupply" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="SupplyLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSupply" Type="int" />
+          <Property Name="LogMessage" Type="nvarchar" MaxLength="255" />
+          <Property Name="LogDate" Type="datetime" />
+        </EntityType>
         <Association Name="FK__Good__IdCategory__44FF419A">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Good" Type="Self.Good" Multiplicity="*" />
@@ -171,6 +180,7 @@
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supply" EntityType="Self.Supply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplyLog" EntityType="Self.SupplyLog" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Good__IdCategory__44FF419A" Association="Self.FK__Good__IdCategory__44FF419A">
             <End Role="Category" EntitySet="Category" />
             <End Role="Good" EntitySet="Good" />
@@ -412,7 +422,17 @@
             <End Role="Provider" EntitySet="Provider" />
             <End Role="Supply" EntitySet="Supply" />
           </AssociationSet>
+          <EntitySet Name="SupplyLog" EntityType="FlowerShopModel.SupplyLog" />
         </EntityContainer>
+        <EntityType Name="SupplyLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSupply" Type="Int32" />
+          <Property Name="LogMessage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LogDate" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -497,6 +517,16 @@
                 <ScalarProperty Name="IdGood" ColumnName="IdGood" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="DateSupply" ColumnName="DateSupply" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplyLog">
+            <EntityTypeMapping TypeName="FlowerShopModel.SupplyLog">
+              <MappingFragment StoreEntitySet="SupplyLog">
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="LogMessage" ColumnName="LogMessage" />
+                <ScalarProperty Name="IdSupply" ColumnName="IdSupply" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

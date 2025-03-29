@@ -20,6 +20,7 @@
         <AssociationConnector Association="FlowerShopModel.FK__Supply__IdGood__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="FlowerShopModel.FK__OrderDeta__IdOrd__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="FlowerShopModel.FK__Supply__IdProvid__4AB81AF0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FlowerShopModel.SupplyLog" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

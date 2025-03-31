@@ -124,29 +124,42 @@ namespace FlowerShop.ViewModel
         public void LoadGood()
         {
             Goods.Clear();
-            using(var context = new FlowerShopEntities())
+            try
             {
-                var temp = context.Good.ToList();
-
-                foreach (var good in temp)
+                using (var context = new FlowerShopEntities())
                 {
-                    Goods.Add(good);
+                    var temp = context.Good.ToList();
+
+                    foreach (var good in temp)
+                    {
+                        Goods.Add(good);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка загрузки данных! Проверте подлкючение к БД.");
             }
         }
 
         public void LoadSupply()
         {
             Supplies.Clear();
-            using(var context = new FlowerShopEntities())
-            {
-                var temp = context.Supply.ToList();
-
-                foreach (var supply in temp)
+            try {
+                using (var context = new FlowerShopEntities())
                 {
-                    Supplies.Add(supply);
+                    var temp = context.Supply.ToList();
+
+                    foreach (var supply in temp)
+                    {
+                        Supplies.Add(supply);
+                    }
                 }
-}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка загрузки данных! Проверте подлкючение к БД.");
+            }
         }
 
         public void DeleteGood()

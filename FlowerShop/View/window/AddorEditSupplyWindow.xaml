@@ -1,0 +1,35 @@
+﻿<Window x:Class="FlowerShop.View.window.AddorEditSupplyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShop.View.window"
+        mc:Ignorable="d"
+            Title="Управление поставками" MinHeight="400" MinWidth="350" Height="400" Width="350" WindowStartupLocation="CenterScreen">
+<Grid>
+    <GroupBox Header="Добавление/изменение поставки" Padding="5" Width="210" Height="300" HorizontalAlignment="Center" Margin="10">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+            <Label Content="ID поставщика" Height="25" Width="180"/>
+            <TextBox Text="{Binding NewSupply.IdProvider}" Height="20" Width="150" Margin="5"/>
+
+            <Label Content="ID товара" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewSupply.IdGood}" Height="20" Width="150" Margin="5"/>
+
+            <Label Content="Количество товара" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewSupply.Quantity}" Height="20" Width="150" Margin="5"/>
+
+            <Label Content="Дата поставки" Height="25" Width="180"/>
+                <DatePicker 
+                    SelectedDateFormat="Short" 
+                    SelectedDate="{Binding NewSupply.DateSupply}"
+                    Margin="5"/>
+
+    <Button
+        Name="saveButton"
+        Content="Сохранить"
+        Grid.Row="4"
+        Margin="5" Height="20" Width="150" Click="saveButton_Click"></Button>
+        </StackPanel>
+    </GroupBox>
+</Grid>
+</Window>

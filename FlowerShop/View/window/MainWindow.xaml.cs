@@ -24,33 +24,85 @@ namespace FlowerShop.View.window
         {
             InitializeComponent();
 
+            var customCursor = new Cursor("D:\\Ам Ням\\FlowerShop\\FlowerShop\\Assets\\Cursors\\flower.cur");
+            Mouse.OverrideCursor = customCursor;
+           
             DataContext = new MainWindowViewModel();
 
-            (DataContext as MainWindowViewModel).LoadCustomers();
+            (DataContext as MainWindowViewModel).LoadGood();
+            (DataContext as MainWindowViewModel).LoadSupply();
         }
 
         private void getButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWindowViewModel).LoadCustomers();
+
+            if (TabControl.SelectedItem.ToString().Contains("Товар"))
+            {
+                (DataContext as MainWindowViewModel).LoadGood();
+            }
+
+            if (TabControl.SelectedItem.ToString().Contains("Поставка"))
+            {
+                (DataContext as MainWindowViewModel).LoadSupply();
+            }
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWindowViewModel).DeleteCustomer();
+
+            if (TabControl.SelectedItem.ToString().Contains("Товар"))
+            {
+                if ((DataContext as MainWindowViewModel).SelectedGood != null)
+                {
+                    (DataContext as MainWindowViewModel).DeleteGood();
+                }
+            }
+            if (TabControl.SelectedItem.ToString().Contains("Поставка"))
+            {
+                if ((DataContext as MainWindowViewModel).SelectedSupply != null)
+                {
+                    (DataContext as MainWindowViewModel).DeleteSupply();
+                }
+            }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            if (TabControl.SelectedItem.ToString().Contains("Товар"))
+            {
                 AddCustomerWindow addCustomerWindow = new AddCustomerWindow(null);
                 addCustomerWindow.Owner = this;
                 addCustomerWindow.ShowDialog();
+            }
+            if (TabControl.SelectedItem.ToString().Contains("Поставка"))
+            {
+                AddorEditSupplyWindow addWindow = new AddorEditSupplyWindow(null);
+                addWindow.Owner = this;
+                addWindow.ShowDialog();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                AddCustomerWindow addCustomerWindow = new AddCustomerWindow((DataContext as MainWindowViewModel).SelectedGood);
-                addCustomerWindow.Owner = this;
-                addCustomerWindow.ShowDialog();
+
+            if (TabControl.SelectedItem.ToString().Contains("Товар"))
+            {
+                if ((DataContext as MainWindowViewModel).SelectedGood != null)
+                {
+                    AddCustomerWindow addCustomerWindow = new AddCustomerWindow((DataContext as MainWindowViewModel).SelectedGood);
+                    addCustomerWindow.Owner = this;
+                    addCustomerWindow.ShowDialog();
+                }
+            }
+            if (TabControl.SelectedItem.ToString().Contains("Поставка"))
+            {
+                if ((DataContext as MainWindowViewModel).SelectedSupply != null)
+                {
+                    AddorEditSupplyWindow addWindow = new AddorEditSupplyWindow((DataContext as MainWindowViewModel).SelectedSupply);
+                    addWindow.Owner = this;
+                    addWindow.ShowDialog();
+                }
+            }
         }
     }
 }

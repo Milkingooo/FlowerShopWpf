@@ -5,14 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlowerShop.View.window"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+        Icon="/Assets/Images/icon.png"
+        Background="AliceBlue"
+        Title="Главная" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <ToolBar Height="30" VerticalAlignment="Top">
-                <Button>
-                    <Image Source="/Assets/Images/save.png" />
-                </Button>
-                <Separator />
                 <Button
                       Name="addButton"
                       Click="addButton_Click">
@@ -35,12 +33,12 @@
                     <Image Source="/Assets/Images/reload.png" />
                 </Button>
                 <Separator />
-                <TextBox Foreground="LightGray" Width="100">Поиск...</TextBox>
-                <Separator />
-                
+                <!--<TextBox Foreground="LightGray" Width="100">Поиск...</TextBox>-->
             </ToolBar>
-            <TabControl>
-                <TabItem Header="Товар">
+            <TabControl
+                Name="TabControl">
+                <TabItem
+                    Header="Товар">
                     <TabItem.Content>
                         <DataGrid
                          IsReadOnly="True"
@@ -61,8 +59,8 @@
 
                                 </DataGridTextColumn>
                                 <DataGridTextColumn
-                     Header="Количество"
-                     Binding="{Binding Path=Quantity}">
+                         Header="Количество"
+                         Binding="{Binding Path=Quantity}">
                                 </DataGridTextColumn>
                                 <DataGridTextColumn
                          Header="ID категории"
@@ -72,7 +70,36 @@
                         </DataGrid>
                     </TabItem.Content>
                 </TabItem>
-                <TabItem Header="Поставка">Вторая вкладка</TabItem>
+                <TabItem Header="Поставка">
+                    <DataGrid
+                        IsReadOnly="True"
+                        SelectedItem="{Binding SelectedSupply}"
+                        Grid.Row="0"
+                        AutoGenerateColumns="False"
+                        ItemsSource="{Binding Supplies}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                        Header="ID поставщика"
+                        Binding="{Binding Path=IdProvider}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                        Header="ID товара"
+                        Binding="{Binding Path=IdGood}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                        Header="Количество"
+                        Binding="{Binding Path=Quantity}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                        Header="Дата поставки"
+                        Binding="{Binding Path=DateSupply}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
             </TabControl>
            
         </StackPanel>

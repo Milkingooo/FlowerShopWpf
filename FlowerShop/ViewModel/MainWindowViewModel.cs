@@ -69,7 +69,6 @@ namespace FlowerShop.ViewModel
             get => _idGood;
             set => SetPropertyChanged(ref _idGood, value, nameof(IdGood));
         }
-
         public DateTime DateSupply
         {
             get => _dateSupply;

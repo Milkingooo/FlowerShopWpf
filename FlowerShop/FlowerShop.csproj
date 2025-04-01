@@ -127,8 +127,26 @@
     </Compile>
     <Compile Include="ViewModel\BVM.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="View\window\AddCustomerWindow.xaml.cs">
-      <DependentUpon>AddCustomerWindow.xaml</DependentUpon>
+    <Compile Include="View\window\AddOrEditCategoryWindow.xaml.cs">
+      <DependentUpon>AddOrEditCategoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\window\AddOrEditCityWindow.xaml.cs">
+      <DependentUpon>AddOrEditCityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\window\AddOrEditCustomerWindow.xaml.cs">
+      <DependentUpon>AddOrEditCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\window\AddOrEditGoodWindow.xaml.cs">
+      <DependentUpon>AddOrEditGoodWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\window\AddOrEditOrderDetailsWindow.xaml.cs">
+      <DependentUpon>AddOrEditOrderDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\window\AddOrEditOrderWindow.xaml.cs">
+      <DependentUpon>AddOrEditOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\window\AddOrEditProviderWindow.xaml.cs">
+      <DependentUpon>AddOrEditProviderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\window\AddorEditSupplyWindow.xaml.cs">
       <DependentUpon>AddorEditSupplyWindow.xaml</DependentUpon>
@@ -184,7 +202,31 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\window\AddCustomerWindow.xaml">
+    <Page Include="View\window\AddOrEditCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\window\AddOrEditCityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\window\AddOrEditCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\window\AddOrEditGoodWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\window\AddOrEditOrderDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\window\AddOrEditOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\window\AddOrEditProviderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,6 +249,8 @@
     <Resource Include="Assets\Images\icon.png" />
     <Resource Include="Assets\Cursors\flower.cur" />
     <Resource Include="Assets\Images\background.png" />
+    <Resource Include="Assets\Images\load.gif" />
+    <Resource Include="Assets\Images\help.png" />
     <Content Include="Model\FlowerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FlowerModel.Context.cs</LastGenOutput>

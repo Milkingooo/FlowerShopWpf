@@ -21,47 +21,40 @@ namespace FlowerShop.View.window
     /// </summary>
     public partial class AddorEditSupplyWindow : Window
     {
-        private Supply isNew;
         public AddorEditSupplyWindow(Supply editSupply)
         {
             InitializeComponent();
 
             DataContext = new MainWindowViewModel();
 
-            (DataContext as MainWindowViewModel).NewSupply = editSupply;
-
-            isNew = editSupply;
-
-            if (isNew == null)
+            if (editSupply != null)
             {
-                (DataContext as MainWindowViewModel).NewSupply = new Supply();
+                (DataContext as MainWindowViewModel).NewSupply = editSupply;
+            }
+            else
+            {
+                DataContext = new MainWindowViewModel();
+                (DataContext as MainWindowViewModel).NewSupply.DateSupply = DateTime.Now;
             }
 
         }
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private async void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (isNew == null)
+            if (!string.IsNullOrEmpty(tbIdP.Text) && !string.IsNullOrEmpty(tbIdG.Text) && !string.IsNullOrEmpty(quant.Text) && datePick.SelectedDate != null)
             {
-                var result = (DataContext as MainWindowViewModel).AddSupply();
+                var result = await (DataContext as MainWindowViewModel).AddOrEditSupply();
 
                 if (result)
                 {
                     MessageBox.Show("Запись сохранена!", "Управление товарами", MessageBoxButton.OK);
-                    ((this.Owner as MainWindow).DataContext as MainWindowViewModel).LoadSupply();
+                    ((this.Owner as MainWindow).DataContext as MainWindowViewModel).LoadTables();
                     this.Close();
                 }
             }
             else
             {
-                var result = (DataContext as MainWindowViewModel).EditSupply();
-
-                if (result)
-                {
-                    MessageBox.Show("Запись сохранена!", "Управление товарами", MessageBoxButton.OK);
-                    ((this.Owner as MainWindow).DataContext as MainWindowViewModel).LoadSupply();
-                    this.Close();
-                }
+                MessageBox.Show("Заполните все поля!");
             }
         }
     }

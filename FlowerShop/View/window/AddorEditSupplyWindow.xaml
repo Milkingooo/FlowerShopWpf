@@ -10,16 +10,23 @@
     <GroupBox Header="Добавление/изменение поставки" Padding="5" Width="210" Height="300" HorizontalAlignment="Center" Margin="10">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
             <Label Content="ID поставщика" Height="25" Width="180"/>
-            <TextBox Text="{Binding NewSupply.IdProvider}" Height="20" Width="150" Margin="5"/>
+            <TextBox 
+                Name="tbIdP"
+                Text="{Binding NewSupply.IdProvider}" Height="20" Width="150" Margin="5" />
 
             <Label Content="ID товара" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewSupply.IdGood}" Height="20" Width="150" Margin="5"/>
+                <TextBox 
+                    Name="tbIdG"
+                    Text="{Binding NewSupply.IdGood}" Height="20" Width="150" Margin="5"/>
 
             <Label Content="Количество товара" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewSupply.Quantity}" Height="20" Width="150" Margin="5"/>
+                <TextBox
+                    Name="quant"
+                    Text="{Binding NewSupply.Quantity}" Height="20" Width="150" Margin="5"/>
 
             <Label Content="Дата поставки" Height="25" Width="180"/>
                 <DatePicker 
+                    Name="datePick"
                     SelectedDateFormat="Short" 
                     SelectedDate="{Binding NewSupply.DateSupply}"
                     Margin="5"/>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="FlowerShop.View.window.AddOrEditCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerShop.View.window"
+        mc:Ignorable="d"
+            Title="Управление клиентам" MinHeight="400" MinWidth="350" Height="400" Width="350" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="Добавление/изменение клиента" Padding="5" Width="210" Height="300" HorizontalAlignment="Center" Margin="10">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="Имя клиента" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewCustomer.Name}" Height="20" Width="150" Margin="5"/>
+
+                <Label Content="Телефон клиента" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewCustomer.Phone}" Height="20" Width="150" Margin="5"/>
+
+                <Label Content="Почта клиента" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewCustomer.Email}" Height="20" Width="150" Margin="5"/>
+
+                <Label Content="Пароль клиента" Height="25" Width="180"/>
+                <TextBox Text="{Binding NewCustomer.Password}" Height="20" Width="150" Margin="5"></TextBox>
+
+                <Button
+        Name="saveButton"
+        Content="Сохранить"
+        Grid.Row="4"
+        Click="saveButton_Click"
+        Margin="5" Height="20" Width="150"></Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

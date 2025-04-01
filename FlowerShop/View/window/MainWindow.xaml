@@ -10,7 +10,7 @@
         Title="Главная" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
-            <ToolBar Height="30" VerticalAlignment="Top">
+            <ToolBar Height="35" VerticalAlignment="Top">
                 <Button
                       Name="addButton"
                       Click="addButton_Click">
@@ -33,20 +33,39 @@
                     <Image Source="/Assets/Images/reload.png" />
                 </Button>
                 <Separator />
+                <Button
+                    Name="helpButton"
+                    Click="helpButton_Click">
+                    <Image Source="/Assets/Images/help.png" />
+                </Button>
+                <Separator />
+                <ProgressBar 
+                    Width="100"
+                    Height="15"
+                    VerticalAlignment="Center"
+                    Minimum="0" 
+                    Maximum="8"
+                    Value="{Binding Count}"
+                    Margin="5"/>
                 <!--<TextBox Foreground="LightGray" Width="100">Поиск...</TextBox>-->
+                <TextBlock x:Name="LoadGif" 
+                           Text="Подождите, идёт загрузка..." 
+                           FontFamily="Bahnschrift"
+                           TextAlignment="Center" 
+                           FontSize="14"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"/>
             </ToolBar>
             <TabControl
-                Name="TabControl">
+                Name="TabControl2">
                 <TabItem
                     Header="Товар">
                     <TabItem.Content>
                         <DataGrid
                          IsReadOnly="True"
-                         SelectedItem="{Binding SelectedGood}"
-                         Grid.Row="0"
+                         SelectedItem="{Binding SelectedObject}"
                          AutoGenerateColumns="False"
                          ItemsSource="{Binding Goods}">
-
                             <DataGrid.Columns>
                                 <DataGridTextColumn
                          Header="Название"
@@ -73,7 +92,7 @@
                 <TabItem Header="Поставка">
                     <DataGrid
                         IsReadOnly="True"
-                        SelectedItem="{Binding SelectedSupply}"
+                        SelectedItem="{Binding SelectedObject}"
                         Grid.Row="0"
                         AutoGenerateColumns="False"
                         ItemsSource="{Binding Supplies}">
@@ -100,8 +119,159 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
+                <TabItem Header="Поставщик">
+                    <DataGrid
+        IsReadOnly="True"
+        SelectedItem="{Binding SelectedObject}"
+        Grid.Row="0"
+        AutoGenerateColumns="False"
+        ItemsSource="{Binding Providers}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+        Header="Название поставщика"
+        Binding="{Binding Path=Name}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+        Header="ID города"
+        Binding="{Binding Path=IdCity}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+        Header="Телефон"
+        Binding="{Binding Path=Phone}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+        Header="Почта"
+        Binding="{Binding Path=Email}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Заказ">
+                    <DataGrid
+IsReadOnly="True"
+SelectedItem="{Binding SelectedObject}"
+Grid.Row="0"
+AutoGenerateColumns="False"
+ItemsSource="{Binding Orders}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+Header="ID клиента"
+Binding="{Binding Path=IdCustomer}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Итоговая цена"
+Binding="{Binding Path=TotalPrice}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Дата заказа"
+Binding="{Binding Path=OrderDate}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Детали заказа">
+                    <DataGrid
+IsReadOnly="True"
+SelectedItem="{Binding SelectedObject}"
+Grid.Row="0"
+AutoGenerateColumns="False"
+ItemsSource="{Binding OrderDetails}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+Header="ID заказа"
+Binding="{Binding Path=IdOrder}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="ID товара"
+Binding="{Binding Path=IdGood}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Количество"
+Binding="{Binding Path=Quantity}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Цена"
+Binding="{Binding Path=Price}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+
+                <TabItem Header="Клиент">
+                    <DataGrid
+IsReadOnly="True"
+SelectedItem="{Binding SelectedObject}"
+Grid.Row="0"
+AutoGenerateColumns="False"
+ItemsSource="{Binding Customers}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+Header="Имя"
+Binding="{Binding Path=Name}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Телефон"
+Binding="{Binding Path=Phone}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Почта"
+Binding="{Binding Path=Email}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Пароль"
+Binding="{Binding Path=Password}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+
+                <TabItem Header="Город">
+                    <DataGrid
+IsReadOnly="True"
+SelectedItem="{Binding SelectedObject}"
+Grid.Row="0"
+AutoGenerateColumns="False"
+ItemsSource="{Binding Cities}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+Header="Название"
+Binding="{Binding Path=Name}">
+
+                            </DataGridTextColumn>
+                            </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Категории">
+                    <DataGrid
+IsReadOnly="True"
+SelectedItem="{Binding SelectedObject}"
+Grid.Row="0"
+AutoGenerateColumns="False"
+ItemsSource="{Binding Categories}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+Header="Название"
+Binding="{Binding Path=Name}">
+
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
             </TabControl>
-           
         </StackPanel>
     </Grid>
 </Window>

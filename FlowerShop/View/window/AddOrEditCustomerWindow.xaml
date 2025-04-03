@@ -6,28 +6,83 @@
         xmlns:local="clr-namespace:FlowerShop.View.window"
         mc:Ignorable="d"
             Title="Управление клиентам" MinHeight="400" MinWidth="350" Height="400" Width="350" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <GroupBox Header="Добавление/изменение клиента" Padding="5" Width="210" Height="300" HorizontalAlignment="Center" Margin="10">
+
+    <Window.Resources>
+        <!-- Стиль для TextBox и PasswordBox -->
+        <Style x:Key="TextBoxStyle" TargetType="Control">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Стиль для Button -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,5,10,0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="5" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#45A049"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#388E3C"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#F4F4F4">
+        <GroupBox Header="Добавление/изменение клиента" Padding="10" Width="260" Height="340"
+              HorizontalAlignment="Center" Margin="10"
+              BorderBrush="Gray" BorderThickness="1"
+              Background="White">
+            <GroupBox.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+            </GroupBox.Effect>
+
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <Label Content="Имя клиента" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewCustomer.Name}" Height="20" Width="150" Margin="5"/>
+                <Label Content="Имя клиента" FontWeight="Bold" Foreground="#333" />
+                <TextBox Text="{Binding NewCustomer.Name}" Style="{StaticResource TextBoxStyle}"/>
 
-                <Label Content="Телефон клиента" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewCustomer.Phone}" Height="20" Width="150" Margin="5"/>
+                <Label Content="Телефон клиента" FontWeight="Bold" Foreground="#333" />
+                <TextBox Text="{Binding NewCustomer.Phone}" Style="{StaticResource TextBoxStyle}"/>
 
-                <Label Content="Почта клиента" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewCustomer.Email}" Height="20" Width="150" Margin="5"/>
+                <Label Content="Почта клиента" FontWeight="Bold" Foreground="#333" />
+                <TextBox Text="{Binding NewCustomer.Email}" Style="{StaticResource TextBoxStyle}"/>
 
-                <Label Content="Пароль клиента" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewCustomer.Password}" Height="20" Width="150" Margin="5"></TextBox>
+                <Label Content="Пароль клиента" FontWeight="Bold" Foreground="#333" />
+                <PasswordBox Name="PasswordBox" Style="{StaticResource TextBoxStyle}"/>
 
-                <Button
-        Name="saveButton"
-        Content="Сохранить"
-        Grid.Row="4"
-        Click="saveButton_Click"
-        Margin="5" Height="20" Width="150"></Button>
+                <Button Name="saveButton" Content="💾 Сохранить" Click="saveButton_Click"
+                    Style="{StaticResource ButtonStyle}" />
             </StackPanel>
         </GroupBox>
     </Grid>
+
 </Window>

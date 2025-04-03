@@ -6,17 +6,72 @@
         xmlns:local="clr-namespace:FlowerShop.View.window"
         mc:Ignorable="d"
                 Title="Управление категориями" MinHeight="200" MinWidth="350" Height="200" Width="350" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <GroupBox Header="Добавление/изменение категориям" Padding="5" Width="210" Height="120" HorizontalAlignment="Center" Margin="10">
+    <Window.Resources>
+        <!-- Стиль для TextBox -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Стиль для Button -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,5,10,0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="5" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#45A049"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#388E3C"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#F4F4F4">
+        <GroupBox Header="Добавление/изменение категории" Padding="10" Width="260" Height="160"
+              HorizontalAlignment="Center" Margin="10"
+              BorderBrush="Gray" BorderThickness="1"
+              Background="White">
+            <GroupBox.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+            </GroupBox.Effect>
+
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <Label Content="Название категории" Height="25" Width="180"/>
-                <TextBox Text="{Binding NewCategory.Name}" Height="20" Width="150" Margin="5"/>
-                <Button
-    Name="saveButton"
-    Content="Сохранить"
-    Grid.Row="4"
-    Click="saveButton_Click"
-    Margin="5" Height="20" Width="150"></Button>
+                <Label Content="Название категории" FontWeight="Bold" Foreground="#333" />
+                <TextBox Text="{Binding NewCategory.Name}" Style="{StaticResource TextBoxStyle}"/>
+
+                <Button Name="saveButton" Content="💾 Сохранить" Click="saveButton_Click"
+                    Style="{StaticResource ButtonStyle}" />
             </StackPanel>
         </GroupBox>
     </Grid>

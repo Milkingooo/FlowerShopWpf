@@ -29,43 +29,43 @@ namespace FlowerShop.ViewModel
         private dynamic _selectedObject;
         private int _count;
 
-        //Good
-        private string _name;
-        private string _price;
-        private string _quantity;
-        private string _idCategory;
+        ////Good
+        //private string _name;
+        //private string _price;
+        //private string _quantity;
+        //private string _idCategory;
         private Good _selectedGood;
         private Good _newGood;
 
         //Supply
-        private string _idProvider;
-        private string _idGood;
-        private string _quantitySupply;
-        private DateTime _dateSupply;
+        //private string _idProvider;
+        //private string _idGood;
+        //private string _quantitySupply;
+        //private DateTime _dateSupply;
         private Supply _selctedSupply;
         private Supply _newSupply;
 
         //Provider
-        private int _idCity;
-        private string _phone;
-        private string _email;
+        //private int _idCity;
+        //private string _phone;
+        //private string _email;
         private Provider _newProvider;
         private Provider _selectedProvider;
 
         //Orders
-        private int _idCustomer;
-        private int _totalPrice;
-        private DateTime _orderDate;
+        //private int _idCustomer;
+        //private int _totalPrice;
+        //private DateTime _orderDate;
         private Orders _newOrder;
         private Orders _selectedOrder;
 
         //OrdersDetails
-        private int _idOrder;
+        //private int _idOrder;
         private OrderDetails _newOrderDetails;
         private OrderDetails _selectedOrderDetails;
 
         //Customer
-        private string _password;
+        //private string _password;
         private Customer _selectedCustomer;
         private Customer _newCustomer;
 
@@ -90,91 +90,91 @@ namespace FlowerShop.ViewModel
         }
 
         //good 1
-        public string Name
-        {
-            get => _name;
-            set => SetPropertyChanged(ref _name, value, nameof(Name));
-        }
-        public string Price
-        {
-            get => _price;
-            set => SetPropertyChanged(ref _price, value, nameof(Price));
-        }
-        public string Quantity
-        {
-            get => _quantity;
-            set => SetPropertyChanged(ref _quantity, value, nameof(Quantity));
-        }
-        public string Idcategory
-        {
-            get => _idCategory;
-            set => SetPropertyChanged(ref _idCategory, value, nameof(Idcategory));
-        }
+        //public string Name
+        //{
+        //    get => _name;
+        //    set => SetPropertyChanged(ref _name, value, nameof(Name));
+        //}
+        //public string Price
+        //{
+        //    get => _price;
+        //    set => SetPropertyChanged(ref _price, value, nameof(Price));
+        //}
+        //public string Quantity
+        //{
+        //    get => _quantity;
+        //    set => SetPropertyChanged(ref _quantity, value, nameof(Quantity));
+        //}
+        //public string Idcategory
+        //{
+        //    get => _idCategory;
+        //    set => SetPropertyChanged(ref _idCategory, value, nameof(Idcategory));
+        //}
 
-        //supply 2
-        public string IdProvider
-        {
-            get => _idProvider;
-            set => SetPropertyChanged(ref _idProvider, value, nameof(IdProvider));
-        }
-        public string IdGood
-        {
-            get => _idGood;
-            set => SetPropertyChanged(ref _idGood, value, nameof(IdGood));
-        }
-        public DateTime DateSupply
-        {
-            get => _dateSupply;
-            set => SetPropertyChanged(ref _dateSupply, value, nameof(DateSupply));
-        }
+        ////supply 2
+        //public string IdProvider
+        //{
+        //    get => _idProvider;
+        //    set => SetPropertyChanged(ref _idProvider, value, nameof(IdProvider));
+        //}
+        //public string IdGood
+        //{
+        //    get => _idGood;
+        //    set => SetPropertyChanged(ref _idGood, value, nameof(IdGood));
+        //}
+        //public DateTime DateSupply
+        //{
+        //    get => _dateSupply;
+        //    set => SetPropertyChanged(ref _dateSupply, value, nameof(DateSupply));
+        //}
 
-        //Provider 3
-        public int IdCity
-        {
-            get => _idCity;
-            set => SetPropertyChanged(ref _idCity, value, nameof(IdCity));
-        }
-        public string Phone
-        {
-            get => _phone;
-            set => SetPropertyChanged(ref _phone, value, nameof(Phone));
-        }
-        public string Email
-        {
-            get => _email;
-            set => SetPropertyChanged(ref _email, value, nameof(Email));
-        }
+        ////Provider 3
+        //public int IdCity
+        //{
+        //    get => _idCity;
+        //    set => SetPropertyChanged(ref _idCity, value, nameof(IdCity));
+        //}
+        //public string Phone
+        //{
+        //    get => _phone;
+        //    set => SetPropertyChanged(ref _phone, value, nameof(Phone));
+        //}
+        //public string Email
+        //{
+        //    get => _email;
+        //    set => SetPropertyChanged(ref _email, value, nameof(Email));
+        //}
 
-        //Order 4
-        public int IdCustomer
-        {
-            get => _idCustomer;
-            set => SetPropertyChanged(ref _idCustomer, value, nameof(IdCustomer));
-        }
-        public int TotalPrice
-        {
-            get => _totalPrice;
-            set => SetPropertyChanged(ref _totalPrice, value, nameof(TotalPrice));
-        }
-        public DateTime OrderDate
-        {
-            get => _orderDate;
-            set => SetPropertyChanged(ref _orderDate, value, nameof(OrderDate));
-        }
+        ////Order 4
+        //public int IdCustomer
+        //{
+        //    get => _idCustomer;
+        //    set => SetPropertyChanged(ref _idCustomer, value, nameof(IdCustomer));
+        //}
+        //public int TotalPrice
+        //{
+        //    get => _totalPrice;
+        //    set => SetPropertyChanged(ref _totalPrice, value, nameof(TotalPrice));
+        //}
+        //public DateTime OrderDate
+        //{
+        //    get => _orderDate;
+        //    set => SetPropertyChanged(ref _orderDate, value, nameof(OrderDate));
+        //}
 
-        //OrdersDetails 5
-        public int IdOrder
-        {
-            get => _idOrder;
-            set => SetPropertyChanged(ref _idOrder, value, nameof(IdOrder));
-        }
+        ////OrdersDetails 5
+        //public int IdOrder
+        //{
+        //    get => _idOrder;
+        //    set => SetPropertyChanged(ref _idOrder, value, nameof(IdOrder));
+        //}
 
-        //Customers 6
-        public string Password
-        {
-            get => _password;
-            set => SetPropertyChanged(ref _password, value, nameof(Password));
-        }
+        ////Customers 6
+        //public string Password
+        //{
+        //    get => _password;
+        //    set => SetPropertyChanged(ref _password, value, nameof(Password));
+        //}
 
         //ObservableCollection
         public ObservableCollection<Good> Goods
@@ -328,77 +328,19 @@ namespace FlowerShop.ViewModel
             NewGood = good;
         }
 
-        //Load
-        //public void LoadCategories(TabControl tabControl)
-        //{
-        //    using (var context = new FlowerShopEntities())
-        //    {
-        //        Categories = context.Database.SqlQuery<string>("SELECT name FROM sys.tables ORDER BY name").ToList();
-
-        //        foreach (var category in Categories)
-        //        {
-        //            TabItem tabItem = new TabItem();
-        //            tabItem.Header = category;
-
-        //            DataGrid dataGrid = new DataGrid();
-        //            dataGrid.AutoGeneratingColumn += DataGrid_AutoGeneratingColumn;
-
-        //            switch (category)
-        //            {
-        //                case "Good":
-        //                    dataGrid.ItemsSource = context.Good.ToList();
-        //                    break;
-        //                case "Supply":
-        //                    dataGrid.ItemsSource = context.Supply.ToList();
-        //                    break;
-        //                case "Provider":
-        //                    dataGrid.ItemsSource = context.Provider.ToList();
-        //                    break;
-        //                case "Category":
-        //                    dataGrid.ItemsSource = context.Category.ToList();
-        //                    break;
-        //                case "Customer":
-        //                    dataGrid.ItemsSource = context.Customer.ToList();
-        //                    break;
-        //                case "Orders":
-        //                    dataGrid.ItemsSource = context.Orders.ToList();
-        //                    break;
-        //                case "OrderDetails":
-        //                    dataGrid.ItemsSource = context.OrderDetails.ToList();
-        //                    break;
-        //                case "SupplyLog":
-        //                    dataGrid.ItemsSource = context.SupplyLog.ToList();
-        //                    break;
-        //                case "City":
-        //                    dataGrid.ItemsSource = context.City.ToList();
-        //                    break;
-        //            }
-        //            tabItem.Content = dataGrid;
-        //            tabControl.Items.Add(tabItem);
-
-        //        }
-        //    }
-        //}
-        //private void DataGrid_AutoGeneratingColumn(object Sender, DataGridAutoGeneratingColumnEventArgs e)
-        //{
-        //    if (e.PropertyName.EndsWith("Id"))
-        //    {
-        //        e.Column.Visibility = Visibility.Collapsed;
-        //    }
-        //}
         public async void LoadTables()
         {
-            Goods.Clear();
-            Providers.Clear();
-            Supplies.Clear();
-            Orders.Clear();
-            OrderDetails.Clear();
-            Customers.Clear();
-            Cities.Clear();
-            Categories.Clear();
-
             try
             {
+                Goods.Clear();
+                Providers.Clear();
+                Supplies.Clear();
+                Orders.Clear();
+                OrderDetails.Clear();
+                Customers.Clear();
+                Cities.Clear();
+                Categories.Clear();
+
                 using (var context = new FlowerShopEntities())
                 {
                     var temp = await context.Good.ToListAsync();

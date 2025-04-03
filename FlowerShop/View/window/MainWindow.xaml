@@ -7,61 +7,116 @@
         mc:Ignorable="d"
         Icon="/Assets/Images/icon.png"
         Background="AliceBlue"
-        Title="Главная" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+        Title="Главная" MinHeight="450" 
+        MinWidth="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Стиль кнопок в ToolBar -->
+        <Style x:Key="ToolbarButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="5" Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#D3D3D3"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#BDBDBD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <StackPanel>
-            <ToolBar Height="35" VerticalAlignment="Top">
-                <Button
-                      Name="addButton"
-                      Click="addButton_Click">
-                    <Image Source="/Assets/Images/add.png" />
+            <ToolBar Height="40" VerticalAlignment="Top" Background="#EEEEEE">
+                <!-- Добавить -->
+                <Button Name="addButton" Click="addButton_Click" Style="{StaticResource ToolbarButtonStyle}">
+                    <Image Source="/Assets/Images/add.png" Width="24" Height="24"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Добавить элемент"/>
+                    </Button.ToolTip>
                 </Button>
-                <Separator />
-                <Button
-                     Name="deleteButton"
-                     Click="deleteButton_Click">
-                    <Image Source="/Assets/Images/delete.png" />
+                <Separator/>
+
+                <!-- Удалить -->
+                <Button Name="deleteButton" Click="deleteButton_Click" Style="{StaticResource ToolbarButtonStyle}">
+                    <Image Source="/Assets/Images/delete.png" Width="24" Height="24"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Удалить элемент"/>
+                    </Button.ToolTip>
                 </Button>
-                <Separator />
-                <Button Click="Button_Click">
-                    <Image Source="/Assets/Images/edit.png" />
+                <Separator/>
+
+                <!-- Редактировать -->
+                <Button Click="Button_Click" Style="{StaticResource ToolbarButtonStyle}">
+                    <Image Source="/Assets/Images/edit.png" Width="24" Height="24"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Редактировать элемент"/>
+                    </Button.ToolTip>
                 </Button>
-                <Separator />
-                <Button
-                    Name="getButton"
-                    Click="getButton_Click">
-                    <Image Source="/Assets/Images/reload.png" />
+                <Separator/>
+
+                <!-- Обновить -->
+                <Button Name="getButton" Click="getButton_Click" Style="{StaticResource ToolbarButtonStyle}">
+                    <Image Source="/Assets/Images/reload.png" Width="24" Height="24"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Обновить данные"/>
+                    </Button.ToolTip>
                 </Button>
-                <Separator />
-                <Button
-                    Name="helpButton"
-                    Click="helpButton_Click">
-                    <Image Source="/Assets/Images/help.png" />
+                <Separator/>
+
+                <!-- Помощь -->
+                <Button Name="helpButton" Click="helpButton_Click" Style="{StaticResource ToolbarButtonStyle}">
+                    <Image Source="/Assets/Images/help.png" Width="24" Height="24"/>
+                    <Button.ToolTip>
+                        <ToolTip Content="Открыть справку"/>
+                    </Button.ToolTip>
                 </Button>
-                <Separator />
-                <ProgressBar 
-                    Width="100"
-                    Height="15"
-                    VerticalAlignment="Center"
-                    Minimum="0" 
-                    Maximum="8"
-                    Value="{Binding Count}"
-                    Margin="5"/>
-                <!--<TextBox Foreground="LightGray" Width="100">Поиск...</TextBox>-->
-                <TextBlock x:Name="LoadGif" 
-                           Text="Подождите, идёт загрузка..." 
-                           FontFamily="Bahnschrift"
-                           TextAlignment="Center" 
-                           FontSize="14"
-                           VerticalAlignment="Center"
-                           Visibility="Collapsed"/>
+                <Separator/>
+
+                <!-- Прогресс выполнения -->
+                <ProgressBar Width="120" Height="18" VerticalAlignment="Center"
+                 Minimum="0" Maximum="7" Value="{Binding Count}" 
+                 Margin="5" Foreground="#4CAF50" Background="#DDD"/>
+
+                <!-- Индикатор загрузки -->
+                <TextBlock x:Name="LoadGif"
+               Text="Загрузка..."
+               FontFamily="Bahnschrift"
+               FontSize="14"
+               FontWeight="Bold"
+               Foreground="#FF5722"
+               TextAlignment="Center"
+               VerticalAlignment="Center"
+               Visibility="Collapsed"/>
             </ToolBar>
+
             <TabControl
-                Name="TabControl2">
+                Name="TabControl2"
+                FontFamily="Bahnschrift SemiLight SemiCondensed"
+                FontSize="14">
                 <TabItem
-                    Header="Товар">
+                    Header="Товар" >
                     <TabItem.Content>
                         <DataGrid
+                            FontFamily="Bahnschrift SemiLight SemiCondensed"
                          IsReadOnly="True"
                          SelectedItem="{Binding SelectedObject}"
                          AutoGenerateColumns="False"
@@ -91,6 +146,7 @@
                 </TabItem>
                 <TabItem Header="Поставка">
                     <DataGrid
+                        FontFamily="Bahnschrift SemiLight SemiCondensed"
                         IsReadOnly="True"
                         SelectedItem="{Binding SelectedObject}"
                         Grid.Row="0"
@@ -251,7 +307,7 @@ Header="Название"
 Binding="{Binding Path=Name}">
 
                             </DataGridTextColumn>
-                            </DataGrid.Columns>
+                        </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Категории">

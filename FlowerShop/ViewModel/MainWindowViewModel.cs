@@ -25,47 +25,48 @@ namespace FlowerShop.ViewModel
         private ObservableCollection<Customer> _customers;
         private ObservableCollection<City> _cities;
         private ObservableCollection<Category> _categories;
+        private ObservableCollection<SupplyLog> _supplyLogs;
 
         private dynamic _selectedObject;
         private int _count;
 
         ////Good
-        //private string _name;
-        //private string _price;
-        //private string _quantity;
-        //private string _idCategory;
+        private string _name;
+        private string _price;
+        private string _quantity;
+        private string _idCategory;
         private Good _selectedGood;
         private Good _newGood;
 
         //Supply
-        //private string _idProvider;
-        //private string _idGood;
-        //private string _quantitySupply;
-        //private DateTime _dateSupply;
+        private string _idProvider;
+        private string _idGood;
+        private string _quantitySupply;
+        private DateTime _dateSupply;
         private Supply _selctedSupply;
         private Supply _newSupply;
 
         //Provider
-        //private int _idCity;
-        //private string _phone;
-        //private string _email;
+        private int _idCity;
+        private string _phone;
+        private string _email;
         private Provider _newProvider;
         private Provider _selectedProvider;
 
         //Orders
-        //private int _idCustomer;
-        //private int _totalPrice;
-        //private DateTime _orderDate;
+        private int _idCustomer;
+        private int _totalPrice;
+        private DateTime _orderDate;
         private Orders _newOrder;
         private Orders _selectedOrder;
 
         //OrdersDetails
-        //private int _idOrder;
+        private int _idOrder;
         private OrderDetails _newOrderDetails;
         private OrderDetails _selectedOrderDetails;
 
         //Customer
-        //private string _password;
+        private string _password;
         private Customer _selectedCustomer;
         private Customer _newCustomer;
 
@@ -76,6 +77,11 @@ namespace FlowerShop.ViewModel
         //Category
         private Category _newCategory;
         private Category _selectedCategory;
+
+        //SupplyLog
+        private int _idSupply;
+        private string _logMessage;
+        private DateTime _logDate;
 
         public dynamic SelectedObject
         {
@@ -89,92 +95,110 @@ namespace FlowerShop.ViewModel
             set => SetPropertyChanged(ref _count, value, nameof(Count));
         }
 
-        //good 1
-        //public string Name
-        //{
-        //    get => _name;
-        //    set => SetPropertyChanged(ref _name, value, nameof(Name));
-        //}
-        //public string Price
-        //{
-        //    get => _price;
-        //    set => SetPropertyChanged(ref _price, value, nameof(Price));
-        //}
-        //public string Quantity
-        //{
-        //    get => _quantity;
-        //    set => SetPropertyChanged(ref _quantity, value, nameof(Quantity));
-        //}
-        //public string Idcategory
-        //{
-        //    get => _idCategory;
-        //    set => SetPropertyChanged(ref _idCategory, value, nameof(Idcategory));
-        //}
+        public string Name
+        {
+            get => _name;
+            set => SetPropertyChanged(ref _name, value, nameof(Name));
+        }
+        public string Price
+        {
+            get => _price;
+            set => SetPropertyChanged(ref _price, value, nameof(Price));
+        }
+        public string Quantity
+        {
+            get => _quantity;
+            set => SetPropertyChanged(ref _quantity, value, nameof(Quantity));
+        }
+        public string Idcategory
+        {
+            get => _idCategory;
+            set => SetPropertyChanged(ref _idCategory, value, nameof(Idcategory));
+        }
 
-        ////supply 2
-        //public string IdProvider
-        //{
-        //    get => _idProvider;
-        //    set => SetPropertyChanged(ref _idProvider, value, nameof(IdProvider));
-        //}
-        //public string IdGood
-        //{
-        //    get => _idGood;
-        //    set => SetPropertyChanged(ref _idGood, value, nameof(IdGood));
-        //}
-        //public DateTime DateSupply
-        //{
-        //    get => _dateSupply;
-        //    set => SetPropertyChanged(ref _dateSupply, value, nameof(DateSupply));
-        //}
+        //supply 2
+        public string IdProvider
+        {
+            get => _idProvider;
+            set => SetPropertyChanged(ref _idProvider, value, nameof(IdProvider));
+        }
+        public string IdGood
+        {
+            get => _idGood;
+            set => SetPropertyChanged(ref _idGood, value, nameof(IdGood));
+        }
+        public DateTime DateSupply
+        {
+            get => _dateSupply;
+            set => SetPropertyChanged(ref _dateSupply, value, nameof(DateSupply));
+        }
 
-        ////Provider 3
-        //public int IdCity
-        //{
-        //    get => _idCity;
-        //    set => SetPropertyChanged(ref _idCity, value, nameof(IdCity));
-        //}
-        //public string Phone
-        //{
-        //    get => _phone;
-        //    set => SetPropertyChanged(ref _phone, value, nameof(Phone));
-        //}
-        //public string Email
-        //{
-        //    get => _email;
-        //    set => SetPropertyChanged(ref _email, value, nameof(Email));
-        //}
+        //Provider 3
+        public int IdCity
+        {
+            get => _idCity;
+            set => SetPropertyChanged(ref _idCity, value, nameof(IdCity));
+        }
+        public string Phone
+        {
+            get => _phone;
+            set => SetPropertyChanged(ref _phone, value, nameof(Phone));
+        }
+        public string Email
+        {
+            get => _email;
+            set => SetPropertyChanged(ref _email, value, nameof(Email));
+        }
 
-        ////Order 4
-        //public int IdCustomer
-        //{
-        //    get => _idCustomer;
-        //    set => SetPropertyChanged(ref _idCustomer, value, nameof(IdCustomer));
-        //}
-        //public int TotalPrice
-        //{
-        //    get => _totalPrice;
-        //    set => SetPropertyChanged(ref _totalPrice, value, nameof(TotalPrice));
-        //}
-        //public DateTime OrderDate
-        //{
-        //    get => _orderDate;
-        //    set => SetPropertyChanged(ref _orderDate, value, nameof(OrderDate));
-        //}
+        //Order 4
+        public int IdCustomer
+        {
+            get => _idCustomer;
+            set => SetPropertyChanged(ref _idCustomer, value, nameof(IdCustomer));
+        }
+        public int TotalPrice
+        {
+            get => _totalPrice;
+            set => SetPropertyChanged(ref _totalPrice, value, nameof(TotalPrice));
+        }
+        public DateTime OrderDate
+        {
+            get => _orderDate;
+            set => SetPropertyChanged(ref _orderDate, value, nameof(OrderDate));
+        }
 
-        ////OrdersDetails 5
-        //public int IdOrder
-        //{
-        //    get => _idOrder;
-        //    set => SetPropertyChanged(ref _idOrder, value, nameof(IdOrder));
-        //}
+        //OrdersDetails 5
+        public int IdOrder
+        {
+            get => _idOrder;
+            set => SetPropertyChanged(ref _idOrder, value, nameof(IdOrder));
+        }
 
-        ////Customers 6
-        //public string Password
-        //{
-        //    get => _password;
-        //    set => SetPropertyChanged(ref _password, value, nameof(Password));
-        //}
+        //Customers 6
+        public string Password
+        {
+            get => _password;
+            set => SetPropertyChanged(ref _password, value, nameof(Password));
+        }
+        
+        //SupplyLog
+        public int IdSupply
+        {
+            get => _idSupply;
+            set => SetPropertyChanged(ref _idSupply, value, nameof(IdSupply));  
+        }
+
+        public string LogMessage
+        {
+            get => _logMessage;
+            set => SetPropertyChanged(ref _logMessage, value, nameof(LogMessage));  
+        }
+
+        public DateTime LogDate
+        {
+            get => _logDate;
+            set => SetPropertyChanged(ref _logDate, value, nameof(LogDate));    
+        }
 
         //ObservableCollection
         public ObservableCollection<Good> Goods
@@ -216,6 +240,12 @@ namespace FlowerShop.ViewModel
         {
             get => _categories;
             set => SetPropertyChanged(ref _categories, value, nameof(Categories));
+        }
+
+        public ObservableCollection<SupplyLog> SupplyLogs
+        {
+            get => _supplyLogs;
+            set => SetPropertyChanged(ref _supplyLogs, value, nameof(SupplyLogs));  
         }
 
         //Selected
@@ -312,6 +342,7 @@ namespace FlowerShop.ViewModel
             Customers = new ObservableCollection<Customer>();
             Cities = new ObservableCollection<City>();
             Categories = new ObservableCollection<Category>();
+            SupplyLogs = new ObservableCollection<SupplyLog>();
 
             NewGood = new Good();
             NewSupply = new Supply();
@@ -322,12 +353,12 @@ namespace FlowerShop.ViewModel
             NewCity = new City();
             NewCategory = new Category();
         }
+
         public MainWindowViewModel(Good good)
         {
             Goods = new ObservableCollection<Good>();
             NewGood = good;
         }
-
         public async void LoadTables()
         {
             try
@@ -340,10 +371,11 @@ namespace FlowerShop.ViewModel
                 Customers.Clear();
                 Cities.Clear();
                 Categories.Clear();
+                SupplyLogs.Clear(); 
 
                 using (var context = new FlowerShopEntities())
                 {
-                    var temp = await context.Good.ToListAsync();
+                    var temp = await context.Good.Include(g => g.Category).ToListAsync();
                     Count++;
                     var temp1 = await context.Provider.ToListAsync();
                     Count++;
@@ -359,6 +391,7 @@ namespace FlowerShop.ViewModel
                     Count++;
                     var temp7 = await context.Category.ToListAsync();
                     Count = 0;
+                    var temp8 = await context.SupplyLog.ToListAsync();
 
                     foreach (var good in temp)
                     {
@@ -399,9 +432,14 @@ namespace FlowerShop.ViewModel
                     {
                         Categories.Add(cat);
                     }
+
+                    foreach (var cust in temp8)
+                    {
+                        SupplyLogs.Add(cust);
+                    }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Ошибка загрузки данных! Проверте подлкючение к БД.");
             }
@@ -489,6 +527,7 @@ namespace FlowerShop.ViewModel
                 using (var context = new FlowerShopEntities())
                 {
                     var findEntity = await context.Good.FirstOrDefaultAsync(s => s.Id == NewGood.Id);
+
                     if (findEntity != null)
                     {
                         findEntity.Name = NewGood.Name;

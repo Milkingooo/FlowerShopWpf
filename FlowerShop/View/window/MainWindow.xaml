@@ -45,7 +45,7 @@
 
     <Grid>
         <StackPanel>
-            <ToolBar Height="40" VerticalAlignment="Top" Background="#EEEEEE">
+            <ToolBar Height="40" VerticalAlignment="Top" Background="AliceBlue">
                 <!-- Добавить -->
                 <Button Name="addButton" Click="addButton_Click" Style="{StaticResource ToolbarButtonStyle}">
                     <Image Source="/Assets/Images/add.png" Width="24" Height="24"/>
@@ -122,6 +122,7 @@
                          AutoGenerateColumns="False"
                          ItemsSource="{Binding Goods}">
                             <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                                 <DataGridTextColumn
                          Header="Название"
                          Binding="{Binding Path=Name}">
@@ -138,7 +139,7 @@
                                 </DataGridTextColumn>
                                 <DataGridTextColumn
                          Header="ID категории"
-                         Binding="{Binding Path=IdCategory}">
+                         Binding="{Binding Path=Category.Name}">
                                 </DataGridTextColumn>
                             </DataGrid.Columns>
                         </DataGrid>
@@ -154,6 +155,7 @@
                         ItemsSource="{Binding Supplies}">
 
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn
                         Header="ID поставщика"
                         Binding="{Binding Path=IdProvider}">
@@ -184,6 +186,7 @@
         ItemsSource="{Binding Providers}">
 
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn
         Header="Название поставщика"
         Binding="{Binding Path=Name}">
@@ -214,6 +217,7 @@ AutoGenerateColumns="False"
 ItemsSource="{Binding Orders}">
 
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn
 Header="ID клиента"
 Binding="{Binding Path=IdCustomer}">
@@ -240,6 +244,7 @@ AutoGenerateColumns="False"
 ItemsSource="{Binding OrderDetails}">
 
                         <DataGrid.Columns>
+
                             <DataGridTextColumn
 Header="ID заказа"
 Binding="{Binding Path=IdOrder}">
@@ -271,6 +276,7 @@ AutoGenerateColumns="False"
 ItemsSource="{Binding Customers}">
 
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn
 Header="Имя"
 Binding="{Binding Path=Name}">
@@ -302,11 +308,8 @@ AutoGenerateColumns="False"
 ItemsSource="{Binding Cities}">
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn
-Header="Название"
-Binding="{Binding Path=Name}">
-
-                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -319,9 +322,36 @@ AutoGenerateColumns="False"
 ItemsSource="{Binding Categories}">
 
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
                             <DataGridTextColumn
 Header="Название"
 Binding="{Binding Path=Name}">
+
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="ЛогПоставки">
+                    <DataGrid
+IsReadOnly="True"
+Grid.Row="0"
+AutoGenerateColumns="False"
+ItemsSource="{Binding SupplyLogs}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+Header="ID поставки"
+Binding="{Binding Path=IdSupply}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Содержание"
+Binding="{Binding Path=LogMessage}">
+
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+Header="Дата лога"
+Binding="{Binding Path=LogDate}">
 
                             </DataGridTextColumn>
                         </DataGrid.Columns>

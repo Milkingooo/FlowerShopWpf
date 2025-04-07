@@ -125,6 +125,11 @@
     <Compile Include="Model\SupplyLog.cs">
       <DependentUpon>FlowerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BVM.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\window\AddOrEditCategoryWindow.xaml.cs">
@@ -159,11 +164,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -171,6 +171,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EntityDeploy Include="Model\FlowerModel.edmx">
@@ -240,17 +241,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\flower.cur" />
+    <Resource Include="Resources\flower.cur" />
     <Resource Include="Assets\Images\delete.png" />
     <Resource Include="Assets\Images\edit.png" />
     <Resource Include="Assets\Images\reload.png" />
     <Resource Include="Assets\Images\save.png" />
     <Resource Include="Assets\Images\add.png" />
     <Resource Include="Assets\Images\icon.png" />
-    <Resource Include="Assets\Cursors\flower.cur" />
     <Resource Include="Assets\Images\background.png" />
     <Resource Include="Assets\Images\load.gif" />
     <Resource Include="Assets\Images\help.png" />
+    <Resource Include="Assets\Cursors\flower.cur" />
     <Content Include="Model\FlowerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FlowerModel.Context.cs</LastGenOutput>
